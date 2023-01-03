@@ -45,20 +45,22 @@ function determineCase(char) {
 }
 
 function rot13Lower(char) {
+  const ROTATION_SHIFT = 13;
   let charAscii = char.charCodeAt();
   if (charAscii < LOWER_ASCII_MID) {
-    return String.fromCharCode(charAscii + 13);
+    return String.fromCharCode(charAscii + ROTATION_SHIFT);
   } else {
-    return String.fromCharCode(charAscii - 13);
+    return String.fromCharCode(charAscii - ROTATION_SHIFT);
   }
 }
 
 function rot13Upper(char) {
+  const ROTATION_SHIFT = 13;
   let charAscii = char.charCodeAt();
   if (charAscii < UPPER_ASCII_MID) {
-    return String.fromCharCode(charAscii + 13);
+    return String.fromCharCode(charAscii + ROTATION_SHIFT);
   } else {
-    return String.fromCharCode(charAscii - 13);
+    return String.fromCharCode(charAscii - ROTATION_SHIFT);
   }
 }
 
@@ -88,3 +90,8 @@ console.log(rot13('Teachers open the door, but you must enter by yourself.'));
 console.log(rot13(rot13('Teachers open the door, but you must enter by yourself.')));
 // logs:
 // Teachers open the door, but you must enter by yourself.
+const foobar4 = "[\\]^_`";
+console.log(rot13(foobar4) === foobar4);
+
+const foobar5 = "{|}~";
+console.log(rot13(foobar5) === foobar5);
